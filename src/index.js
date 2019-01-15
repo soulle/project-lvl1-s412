@@ -8,16 +8,20 @@ const hello = () => {
 
 const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
+const getCorrectAnswer = (number) => {
+  if (number % 2 === true) {
+    return 'yes';
+  }
+  return 'no';
+};
+
 const game = (counter, name) => {
   const num = getRandomNum(1, 50);
   console.log(`Question: ${num}`);
-  const correctAnswer = (num) => num % 2 === 0 ? 'yes' : 'no';
-
+  const correctAnswer = getCorrectAnswer(num);
   const answer = readlineSync.question('Your answer: ');
-  
   if (answer === correctAnswer) {
     console.log('Correct!');
-    
     if (counter === 3) {
       console.log(`Congratulations, ${name}`);
     }
@@ -39,5 +43,3 @@ const evenGame = () => {
 
 export { evenGame };
 export default hello;
-
-
