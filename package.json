@@ -1,8 +1,11 @@
 {
   "name": "soulle_braingamesproject",
   "version": "1.0.2",
-  "description": "Mini Brain Games - project for Hexlet",
-  "keywords": ["hexlet", "braingames"],
+  "description": "",
+  "keywords": [
+    "hexlet",
+    "braingames"
+  ],
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
@@ -16,12 +19,15 @@
   },
   "author": "soulle",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.2.3"
+    "@babel/preset-env": "^7.2.3",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
   },
   "dependencies": {
     "readline-sync": "^1.4.9"
