@@ -2,4 +2,3 @@
 import hello from '..';
 
 hello();
-
