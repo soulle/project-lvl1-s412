@@ -28,7 +28,7 @@ const evenGame = () => {
       }
       round += 1;
     } else {
-      console.log(`${answer} was wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`);
+      console.log(`'${answer}' was wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
       break;
     }
   }
