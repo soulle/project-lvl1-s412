@@ -1,6 +1,6 @@
 {
   "name": "soulle_braingamesproject",
-  "version": "3.1.6",
+  "version": "4.1.1",
   "description": "Mini Brain Games project for Hexlet ",
   "keywords": [
     "hexlet",
@@ -9,7 +9,8 @@
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/games/brain-even.js",
-    "brain-calc": "dist/bin/games/brain-calc.js"
+    "brain-calc": "dist/bin/games/brain-calc.js",
+    "brain-gcd": "dist/bin/games/brain-gcd.js"
   },
   "files": [
     "dist"

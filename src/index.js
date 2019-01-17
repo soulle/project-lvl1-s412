@@ -15,6 +15,9 @@ const description = (nameOfTheGame) => {
     case 'brain-calc':
       console.log('What is the result of the expression?');
       break;
+    case 'brain-gcd':
+      console.log('Find the greatest common divisor of given numbers.');
+      break;
     // no default
   }
 };
@@ -24,7 +27,7 @@ const start = (nameOfTheGame) => {
   description(nameOfTheGame);
 };
 
-const greeting = name => `Hello, ${name}`;
+const greeting = name => console.log(`Hello, ${name}`);
 
 const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
@@ -35,6 +38,19 @@ const getCorrect = number => (isEven(number) ? 'yes' : 'no');
 const maxNumberOfRound = 3;
 
 const toString = answer => (((typeof answer) === 'string') ? answer : String(answer));
+
+const gcd = (num1, num2) => {
+  if (num1 === num2) {
+    return num1;
+  }
+  if (num1 > num2) {
+    return gcd(num2, num1);
+  }
+  if (num2 % num1 === 0) {
+    return num1;
+  }
+  return gcd(num2 % num1, num1);
+};
 
 const makeQuestionAndCorrectAnswer = (nameOfTheGame) => {
   let pair = cons(null, null);
@@ -73,13 +89,20 @@ const makeQuestionAndCorrectAnswer = (nameOfTheGame) => {
       // no default
     }
   }
+  if (nameOfTheGame === 'brain-gcd') {
+    const randomNumber1 = getRandomNum(1, 100);
+    const randomNumber2 = getRandomNum(1, 100);
+    const question = `${randomNumber1} ${randomNumber2}`;
+    const correctAnswer = gcd(randomNumber1, randomNumber2);
+    pair = cons(question, correctAnswer);
+  }
   return pair;
 };
 
 const game = (nameOfTheGame) => {
   start(nameOfTheGame);
   const name = readlineSync.question('May I have your name? ');
-  console.log(greeting(name));
+  greeting(name);
   for (let round = 1; round <= maxNumberOfRound; round += 1) {
     const pair = makeQuestionAndCorrectAnswer(nameOfTheGame);
     const question = car(pair);
@@ -102,5 +125,7 @@ const evenGame = () => game('brain-even');
 
 const calc = () => game('brain-calc');
 
-export { evenGame, calc };
+const gcdGame = () => game('brain-gcd');
+
+export { evenGame, calc, gcdGame };
 export default hello;
