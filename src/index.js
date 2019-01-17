@@ -37,10 +37,11 @@ const maxNumberOfRound = 3;
 const toString = answer => (((typeof answer) === 'string') ? answer : String(answer));
 
 const makeQuestionAndCorrectAnswer = (nameOfTheGame) => {
+  let pair = cons(null, null);
   if (nameOfTheGame === 'brain-even') {
     const question = getRandomNum(1, 50);
     const correctAnswer = getCorrect(question);
-    return cons(question, correctAnswer);
+    pair = cons(question, correctAnswer);
   }
   if (nameOfTheGame === 'brain-calc') {
     const pairOfNumbers = cons(getRandomNum(1, 20), getRandomNum(1, 10));
@@ -54,21 +55,25 @@ const makeQuestionAndCorrectAnswer = (nameOfTheGame) => {
       case '+': {
         const question = `${getFirstArg} + ${getSecondArg}`;
         const correctAnswer = getFirstArg + getSecondArg;
-        return cons(question, correctAnswer);
+        pair = cons(question, correctAnswer);
+        break;
       }
       case '-': {
         const question = `${getFirstArg} - ${getSecondArg}`;
         const correctAnswer = getFirstArg - getSecondArg;
-        return cons(question, correctAnswer);
+        pair = cons(question, correctAnswer);
+        break;
       }
       case '*': {
         const question = `${getFirstArg} * ${getSecondArg}`;
         const correctAnswer = getFirstArg * getSecondArg;
-        return cons(question, correctAnswer);
+        pair = cons(question, correctAnswer);
+        break;
       }
       // no default
     }
   }
+  return pair;
 };
 
 const game = (nameOfTheGame) => {
