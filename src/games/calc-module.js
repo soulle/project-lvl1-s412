@@ -4,13 +4,17 @@ import game from '../index';
 
 const description = 'What is the result of the expression?';
 
-const makePair = () => {
+const makeRandomOperation = () => {
   const arrOfOperations = ['+', '-', '*'];
   const randomIndex = getRandomNum(0, arrOfOperations.length);
-  const operation = arrOfOperations[randomIndex];
+  return arrOfOperations[randomIndex];
+};
+
+const makePair = () => {
   const firstRandomNum = getRandomNum(1, 20);
   const secondRandomNum = getRandomNum(1, 10);
   let pair;
+  const operation = makeRandomOperation();
   switch (operation) {
     case '+': {
       const question = `${firstRandomNum} + ${secondRandomNum}`;
