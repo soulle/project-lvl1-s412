@@ -7,9 +7,7 @@ const hello = () => {
   console.log(`Hello, ${name}!`);
 };
 
-const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 const maxNumberOfRound = 3;
-const toString = answer => String(answer);
 
 const game = (description, makePair) => {
   console.log('Welcome to the Brain Games!');
@@ -33,5 +31,5 @@ const game = (description, makePair) => {
   console.log(`Congratulations, ${name}!`);
 };
 
-export { getRandomNum, toString, game };
-export default hello;
+export default game;
+export { hello };

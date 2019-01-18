@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { description, makePair } from '../games/gcd-module';
-import { game } from '../index';
+import runGame from '../games/gcd-module';
 
-game(description, makePair);
+runGame();

@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { description, makePair } from '../games/even-module';
-import { game } from '../index';
+import runGame from '../games/even-module';
 
-game(description, makePair);
+runGame();
