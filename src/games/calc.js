@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import getRandomNum from '../utils';
-import game from '../index';
+import game from '..';
 
 const description = 'What is the result of the expression?';
 
@@ -22,23 +22,19 @@ const makePair = () => {
       pair = cons(question, correctAnswer);
       break;
     }
-    case '-': {
-      const question = `${firstRandomNum} - ${secondRandomNum}`;
-      const correctAnswer = String(firstRandomNum - secondRandomNum);
-      pair = cons(question, correctAnswer);
-      break;
-    }
     case '*': {
       const question = `${firstRandomNum} * ${secondRandomNum}`;
       const correctAnswer = String(firstRandomNum * secondRandomNum);
       pair = cons(question, correctAnswer);
       break;
     }
-    // no default
+    default: {
+      const question = `${firstRandomNum} - ${secondRandomNum}`;
+      const correctAnswer = String(firstRandomNum - secondRandomNum);
+      pair = cons(question, correctAnswer);
+      break;
+    }
   }
   return pair;
 };
-
-const runGame = () => game(description, makePair);
-
-export default runGame;
+export default () => game(description, makePair);

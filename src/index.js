@@ -1,12 +1,6 @@
 import { car, cdr } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
 
-const hello = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-};
-
 const maxNumberOfRound = 3;
 
 const game = (description, makePair) => {
@@ -32,4 +26,3 @@ const game = (description, makePair) => {
 };
 
 export default game;
-export { hello };

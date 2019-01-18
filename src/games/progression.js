@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import getRandomNum from '../utils';
-import game from '../index';
+import game from '..';
 
 const description = 'What number is missing in the progression?';
 const maxLengthOfArray = 10;
@@ -8,14 +8,14 @@ const maxIndex = maxLengthOfArray - 1;
 
 const generateArray = (start, step) => {
   const startArr = [start];
-  const iter = (arr, counter) => {
-    if (arr.length >= maxLengthOfArray) {
-      return arr;
+  const iter = (acc, counter) => {
+    if (acc.length >= maxLengthOfArray) {
+      return acc;
     }
-    const element = arr[arr.length - 1] + step;
-    arr.push(element);
+    const element = acc[acc.length - 1] + step;
+    const newAcc = [...acc, element];
     const newCounter = counter + 1;
-    return iter(arr, newCounter);
+    return iter(newAcc, newCounter);
   };
   return iter(startArr, 1);
 };
@@ -30,14 +30,12 @@ const makeInitialArray = () => {
 const makePair = () => {
   const arr = makeInitialArray();
   const newArr = arr.slice();
-  const randomIndex = getRandomNum(0, maxIndex);
-  const correctAnswer = String(newArr[randomIndex]);
-  newArr[randomIndex] = '..';
+  const hiddenElementIndex = getRandomNum(0, maxIndex);
+  const correctAnswer = String(newArr[hiddenElementIndex]);
+  newArr[hiddenElementIndex] = '..';
   const question = newArr.join(' ');
   const pair = cons(question, correctAnswer);
   return pair;
 };
 
-const runGame = () => game(description, makePair);
-
-export default runGame;
+export default () => game(description, makePair);
