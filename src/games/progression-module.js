@@ -3,11 +3,13 @@ import getRandomNum from '../utils';
 import game from '../index';
 
 const description = 'What number is missing in the progression?';
+const maxLengthOfArray = 10;
+const maxIndex = maxLengthOfArray - 1;
 
 const generateArray = (start, step) => {
   const startArr = [start];
   const iter = (arr, counter) => {
-    if (arr.length > 9) {
+    if (arr.length >= maxLengthOfArray) {
       return arr;
     }
     const element = arr[arr.length - 1] + step;
@@ -20,7 +22,7 @@ const generateArray = (start, step) => {
 
 const makeInitialArray = () => {
   const start = getRandomNum(1, 50);
-  const step = getRandomNum(-10, 20);
+  const step = getRandomNum(-10, 10);
   const arr = generateArray(start, step);
   return arr;
 };
@@ -28,7 +30,7 @@ const makeInitialArray = () => {
 const makePair = () => {
   const arr = makeInitialArray();
   const newArr = arr.slice();
-  const randomIndex = getRandomNum(0, 11);
+  const randomIndex = getRandomNum(0, maxIndex);
   const correctAnswer = String(newArr[randomIndex]);
   newArr[randomIndex] = '..';
   const question = newArr.join(' ');
